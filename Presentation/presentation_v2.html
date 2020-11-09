@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Remark UoA Template</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { 
+        font-family: 'Droid Serif'; 
+        line-height: 1.6;
+        }
+
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: bold;
+        color: #00467F;
+      }
+
+      h1{
+        margin-top: 30px !important;
+        margin-bottom: 30px !important;
+      }
+
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+      .TitleAuthor {
+        color:white; 
+        font-weight: normal;
+      }
+
+      .title-slide .remark-slide-number {
+        display: none;
+      }
+      .title-slide h1, h2, h3, h4 {
+        text-align: left;
+        color:white;
+        line-height: 0.7;
+        font-weight: bold;
+      }
+
+      .title-slide {
+        vertical-align: middle;
+        background-color: #00467F;
+      }
+
+      .logo-title {
+        content: "";
+        position: absolute;
+        top: 15px;
+        right:   15px;
+        height: 88px;
+        width: 267px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url(https://cdn.auckland.ac.nz/assets/central/central-services/mediaandmarketing/uoa-logos-2015/uoa-logo-2015-reverse.png);
+      }
+      .logo-slide {
+        content: "";
+        position: absolute;
+        top: 35px;
+        right:   15px;
+        height: 96px;
+        width: 100px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url(https://cpb-ap-se2.wpmucdn.com/blogs.auckland.ac.nz/dist/d/79/files/2015/10/uoa-v-colour2.png);
+      }
+
+      .left-column {
+        width: 65%;
+        float: left;
+        word-wrap: break-word;
+      }
+     
+      .right-column {
+        width: 30%;
+        float: right;
+        word-wrap: break-word;
+      }
+
+      .left-column-s {
+        width: 75%;
+        float: left;
+        word-wrap: break-word;
+      }
+     
+      .right-column-s {
+        width: 20%;
+        float: right;
+        word-wrap: break-word;
+      }
+
+      .footer {
+        content: "";
+        position: absolute;
+        bottom: 17px;
+        color:gray;
+        font-size: 10pt;
+      }
+      
+      @page {
+        size: 1210px 681px;
+        margin: 0;
+      }
+
+      @media print {
+        .remark-slide-scaler {
+          width: 100% !important;
+          height: 100% !important;
+          transform: scale(1) !important;
+          top: 0 !important;
+          left: 0 !important;
+        }
+      }
+      
+      .credits {
+        font-size: 12px;
+        line-height: 10px !important;
+        font-family: 'Droid Serif'; 
+      }
+
+      .codes {
+        
+        line-height: 20px !important;
+      }
+
+      .questions {
+        font-size: 20px;
+        line-height: 28px !important;
+        font-family: 'Droid Serif'; 
+      }
+
+      .zoom175 {
+        transition: transform .2s; /* Animation */
+      }
+
+      .zoom175:hover {
+        transform: scale(1.75) translateY(-20%) /* translateX(-20%);  */
+        /* (Note: if the zoom is too large, it will go outside of the viewport) */
+      }
+
+      .zoom400 {
+        transition: transform .2s; /* Animation */
+      }
+
+      .zoom400:hover {
+        transform: scale(4) translateY(-50%) /* translateX(-20%);  */
+        /* (Note: if the zoom is too large, it will go outside of the viewport) */
+      }
+
+     .zoom120 {
+	transition: transform .2s;
+     }
+
+     .zoom120:hover {
+	transform: scale(1.2);
+     }
+
+      .color-grey{
+        color: #919191;
+      }
+
+    </style>
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <style>
+    .smaller-font { font-size:14px } 
+    </style>
+
+    <!-- KaTeX and Mathjax support refer to below for syntax -->
+    <!-- https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+    
+    <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+      /* Table Style */
+      .tg  {border-collapse:collapse;border-color:#9ABAD9;border-spacing:0;}
+      .tg td{background-color:#EBF5FF;border-color:#9ABAD9;border-style:solid;border-width:1px;color:#444;
+        font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:2px 10px;word-break:normal;}
+      .tg th{background-color:#409cff;border-color:#9ABAD9;border-style:solid;border-width:1px;color:#fff;
+        font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:2px 10px;word-break:normal;}
+      .tg .tg-dzaw{background-color:#4F81BD;color:#FFF;font-weight:bold;text-align:left;vertical-align:top}
+      .tg .tg-sabo{background-color:#ebf5ff;color:#000000;text-align:left;vertical-align:top}
+      .tg .tg-096r{color:#000000;text-align:left;vertical-align:top}
+      .tg .tg-jayl{background-color:#d2e4fc;color:#000000;text-align:left;vertical-align:top}
+      .tg .tg-ig71{background-color:#D2E4FC;color:#000000;text-align:left;vertical-align:top}
+    </style>
+
+  </head>
+  <body>
+    <textarea id="source">
+
+class: title-slide
+count: false
+.logo-title[]
+
+# Energy Monitor
+### ELECTENG 209
+
+.TitleAuthor[Hao Lin, Krithik Lekinwala, Ankush Patel and Ruskin Swedlund]
+
+---
+
+layout: true
+name: template_slide
+
+.logo-slide[]
+.footer[[Hao Lin, Krithik Lekinwala, Ankush Patel and Ruskin Swedlund](https://www.linkedin.com/in/authorname), Department of Electrical, Computer and Software Engineering (2020)]
+
+---
+
+# Introduction
+
+.left[
+- Home energy monitor to read voltage, current and power consumption
+- Display information on a local 7-segment display, on a mobile app using Bluetooth and on a web app using python
+- Web Application Software developed independently by Ankush to display power, energy, voltage, and current values on a web server: https://ee209t02.herokuapp.com/
+]
+.center[<img src = "img/physicalPCB.png" width="30%" />]
+
+---
+
+# Hardware Design
+
+- Developed parts of the analogue system individually
+- Restricted to E12 values
+- After validation, replicated in Altium for PCD development
+
+.center[<img src = "./img/Ltspice Schematic2.png" width="90%" />]
+.center[** Ltspice Schematic to validate design **]
+
+---
+name: S3
+
+# Firmware Design
+
+- Developed in Atmel AVR intergrated programming platform
+- Our key focus was to procure <b>modular</b> and <b>efficient</b> code
+
+.center[<img src = "../flowcharts/UART flowchart.png" width="80%" />]
+.center[** One of ou many flow charts of a module to service a uC peripheral **]
+
+---
+
+.center[
+<img src = "../flowcharts/ADC flowchart.png" width="80%" />
+<img src = "../flowcharts/Signal Processing Flowchart.png" width="70%" />
+]
+
+
+---
+name: S6
+
+# Digital Signal Processing: Cubic Interpolation
+- Cubic Interopolation and Simpsons Rule used to achieve accurate peak values
+  * Read all voltage ADC values first, then current ADC values to reduce phase difference
+  * Entirely software based, makes a physical peak detector mostly obsolete in this scenario
+
+
+.center[
+<img src = "img/CurrentWaveBefore.png" width="48%" /> &nbsp;
+<img src = "img/CurrentWave.png" width="49%" />
+]
+.center[ ** Sample data before and after interpolation **]
+---
+
+# PCB Design and Development
+
+.center[
+	<img src="img/netw/PCBLayout3DAnnotated.png" width="50%"> &nbsp; &nbsp; &nbsp; &nbsp; 
+  <img src="img/physicalPCB2.png" width="40%">
+]
+
+---
+
+# Bench-work: ~55 hours
+
+Problems encountered during assembly of the PCB:
+- Attempt to extend our OpAmp as a first order filter compromised measurements physically. This alteration was discarded. 
+- A ground trace was destroyed. A physical wire was connected to the nearest ground node to ammend for this.
+- The power supply to the uC was discovered to be forgotten. To amend for the lack of a supply, a physical wire was connected to the 5V supply with the uC.
+(In retrospect ths could have destroyed the uC, current limiting and over-voltage protection should have been implemented along with the connection.) 
+- Influence such as the magnetic field from the voltage probe loop severely compromised our judgement.
+- Error of bench results were amended in correction functions. Correction derived from error analysis in excel.
+
+---
+name: S8
+
+# Project Management
+
+- Weekly meetings used to collaborate new ideas, task delegation, and using newly learnt knowledge to complete project deliverables 
+
+- Hardware designed together using common knowledge. After validation, the design is optimized by analyzing extreme conditions (max v, i, r)  
+
+- Discussed overall structure and identified key parts to implement for Firmware. Self-delegated tasks using Trello for implementations
+
+---
+
+name: S10
+
+# Collaboration Tools
+
+- Orientation and communication through Slack
+- Workflow planning and task management using Trello
+- Documentation in team repository on Github
+
+.center[
+<img src='img/Trello.png' width='55%' /> &nbsp; &nbsp; &nbsp; &nbsp;
+<img src='img/Trello2.png' width="30%" />
+]
+
+---
+
+.center[
+<img src='img/slack.png' width='90%' /> &nbsp; &nbsp; &nbsp; &nbsp;
+]
+.center[** Integrated git commit notifications **]
+
+---
+
+.center[
+<img src='img/slack2.png' width="90%" /> &nbsp; &nbsp; &nbsp; &nbsp;
+]
+.center[** Negotiating and sorting out technical problems **]
+
+---
+
+name: S10
+
+# Git Management
+
+- Effective use of Git, rolling back when encountering issues with latest commit
+- Python script reads makefile to generate Atmel files which lets us configure how we want the project to be built without being constrained to the Atmel IDE
+- Used different branch merges to test different integration and interpolation methods (didn't destroy main branch while testing)
+
+<pre>
+<code style="text-align: center">
++--------------+        +---------------+          +---------------+
+|              |        |               |          |               |
+|   Makefile   +-------->  genAtmel.py  +---------->  AtmelStudio  |
+|              |        |               |          | Project Files |
++--------------+        +---------------+          +---------------+
+</code>
+</pre>
+<img src='img/graph.svg' width='100%' />
+.center[** Git Commit Graph **]
+---
+
+class: title-slide
+layout: false
+count: false
+.logo-title[]
+
+# Acknowledgements
+#### Special thanks to Duleepa, Andrew, Logan and all TA's 
+#### for their valuable feedback & assistance.
+
+    </textarea>
+
+    <!-- 
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    -->    
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript">
+    </script>
+
+
+    <script src="remark/remark.min.js" type="text/javascript">
+    </script>
+
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="remark/terminal.language.js" type="text/javascript"></script>
+
+    <script src="https://kit.fontawesome.com/a405eedf54.js" crossorigin="anonymous"></script>
+    <script src="remark/mark.min.js" type="text/javascript">
+    </script>
+
+    <script type="text/javascript">
+
+      var options = {};
+
+      var renderMath = function() {
+        renderMathInElement(document.body);
+        // or if you want to use $...$ for math,
+        renderMathInElement(document.body, {delimiters: [ // mind the order of delimiters(!?)
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "\\(", right: "\\)", display: false},
+        ]});
+      }
+
+      var slideshow = remark.create({
+        ratio: '16:9',
+        slideNumberFormat: '%current%',
+        countIncrementalSlides: false,
+        renderMath,
+        highlightLanguage: 'c',
+        highlightStyle: 'github',
+        navigation: {
+          // Enable or disable navigating using scroll
+          // Default: true
+          // Alternatives: false
+          scroll: true,
+
+          // Enable or disable navigation using touch
+          // Default: true
+          // Alternatives: false
+          touch: true,
+
+          // Enable or disable navigation using click
+          // Default: false
+          // Alternatives: true
+          click: false,
+        },
+        
+      });
+
+      MathJax.Hub.Config({
+          tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          processEscapes: true
+          }
+      });
+
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+
+      MathJax.Hub.Configured();
+      
+      //Terminal style highligting code
+      var highlighted = document.querySelectorAll("code.terminal span.hljs-ansi");
+      Array.prototype.forEach.call(highlighted, function(next) {
+        next.insertAdjacentHTML("beforebegin", next.textContent);
+        next.parentNode.removeChild(next);
+      });
+
+      window.addEventListener('load', function() {
+      RemarkSearch.create({'position': 'top-left', 'caseSensitive' : false, 'showIcon': true, 'autoSearch': true});
+      });
+
+
+    </script>
+  </body>
+</html>

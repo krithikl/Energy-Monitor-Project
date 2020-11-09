@@ -1,0 +1,36 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #000000;
+}
+
+header {
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #00467F;
+	padding: 2%;
+}
+
+header h1 {
+	margin: 0;
+	padding: 0;
+}
+
+header p {
+	text-decoration: underline;
+	margin: 0;
+	cursor: pointer;
+}
+
+header img {
+	width: 25%;
+}
+
+canvas {
+}
+
+.canvas_container {
+	width: 50%;
+	position: relative;
+	left: 25%;
+}
